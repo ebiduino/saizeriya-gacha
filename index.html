@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>サイゼリヤ1000円ガチャ</title>
     <style>
+        /* 既存のCSSはそのまま */
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             display: flex;
@@ -29,26 +30,31 @@
             color: #d1121d; /* サイゼリヤっぽい赤 */
             margin-bottom: 25px;
         }
-        .option-group { /* オプション全体を囲むグループのスタイル */
+        .option-group {
             margin-bottom: 20px;
             text-align: left;
             width: 100%;
-            max-width: 600px; /* 親コンテナの幅に合わせるか調整 */
-            padding-left: 20px; /* 少し左に寄せる */
+            max-width: 600px;
+            padding-left: 20px;
         }
         .option-group label {
             font-size: 1.1em;
             color: #555;
-            display: block; /* 縦に並べる場合 */
+            display: block;
             margin-bottom: 5px;
         }
-        .option-group input[type="checkbox"] {
-            transform: scale(1.5); /* チェックボックスを少し大きく */
+        .option-group input[type="checkbox"],
+        .option-group select { /* select要素にもスタイルを適用 */
+            transform: scale(1.0); /* チェックボックスはそのまま */
             margin-right: 10px;
             vertical-align: middle;
+            font-size: 1em; /* ドロップダウンのフォントサイズ */
+            padding: 5px; /* ドロップダウンのパディング */
+            border-radius: 5px; /* ドロップダウンの角を丸く */
+            border: 1px solid #ccc; /* ドロップダウンのボーダー */
         }
         #gachaButton {
-            background-color: #007bff; /* 青系のボタン */
+            background-color: #007bff;
             color: white;
             padding: 15px 30px;
             font-size: 1.2em;
@@ -71,7 +77,7 @@
             background-color: #e9ecef;
             padding: 20px;
             border-radius: 8px;
-            min-height: 100px; /* 結果表示エリアの最小高さを確保 */
+            min-height: 100px;
             text-align: left;
             line-height: 1.6;
             color: #333;
@@ -95,7 +101,15 @@
 </head>
 <body>
     <div class="container">
-        <h1>サイゼリヤ 1000円ガチャ</h1>
+        <h1>サイゼリヤ ガチャ</h1>
+
+        <div class="option-group">
+            <label for="targetAmountSelect">目標金額:</label>
+            <select id="targetAmountSelect">
+                <option value="1000" selected>1000円</option>
+                <option value="1500">1500円</option>
+            </select>
+        </div>
 
         <div class="option-group">
             <label>
@@ -111,7 +125,7 @@
 
         <button id="gachaButton">ガチャを回す</button>
         <div id="result">
-            <p>ボタンを押すと、ちょうど1000円になるサイゼリヤメニューの組み合わせが表示されます。</p>
+            <p>目標金額と条件を選んで、ガチャを回してください。</p>
         </div>
 
         <script src="script.js"></script>

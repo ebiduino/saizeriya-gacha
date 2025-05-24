@@ -2,32 +2,31 @@
 const gachaButton = document.getElementById('gachaButton');
 const resultDiv = document.getElementById('result');
 const includeAlcoholCheckbox = document.getElementById('includeAlcohol');
-const excludeInVegetableCheckbox = document.getElementById('excludeInVegetable'); // 新しく追加するチェックボックスへの参照
+const excludeInVegetableCheckbox = document.getElementById('excludeInVegetable');
+// 新しく追加するドロップダウンメニューへの参照を取得
+const targetAmountSelect = document.getElementById('targetAmountSelect'); // <-- この行を追加
 
-// メニューデータを格納する変数 (非同期で読み込まれるため、最初は空の状態)
+// メニューデータを格納する変数
 let allMenuItems = [];
 
 // menu.jsonファイルを読み込む関数
 async function loadMenuItems() {
     try {
-        // Fetch APIを使ってmenu.jsonファイルを読み込む
-        // ※重要: ローカルファイルの場合、ブラウザのセキュリティ制限により直接読み込めない場合があります。
-        // その場合は、VS Codeの「Live Server」拡張機能を使うと解決できます。
-        const response = await fetch('menu.json'); // 'menu.json'ファイルを読み込む
-        if (!response.ok) { // レスポンスが正常でなければエラーを投げる
+        const response = await fetch('menu.json');
+        if (!response.ok) {
             throw new Error(`HTTPエラーが発生しました！ ステータス: ${response.status}`);
         }
-        allMenuItems = await response.json(); // レスポンスをJSONとして解析し、allMenuItemsに格納
-        console.log('メニューデータを正常に読み込みました:', allMenuItems); // 開発者コンソールに表示
+        allMenuItems = await response.json();
+        console.log('メニューデータを正常に読み込みました:', allMenuItems);
 
         // データ読み込み後にボタンを有効にするなど、初期化処理があればここに
-        gachaButton.disabled = false; // データが読み込まれたらボタンを有効化
-        resultDiv.innerHTML = '<p>メニューデータの読み込みが完了しました。ボタンを押してガチャを回してください。</p>';
+        gachaButton.disabled = false;
+        resultDiv.innerHTML = '<p>メニューデータの読み込みが完了しました。目標金額を選んでガチャを回してください。</p>'; // メッセージ更新
 
     } catch (error) {
-        console.error('メニューデータの読み込み中にエラーが発生しました:', error); // エラーを開発者コンソールに表示
+        console.error('メニューデータの読み込み中にエラーが発生しました:', error);
         resultDiv.innerHTML = `<p class="error-message">メニューデータの読み込みに失敗しました。ページを再読み込みしてください。<br>エラー: ${error.message}</p>`;
-        gachaButton.disabled = true; // エラー時はボタンを無効化
+        gachaButton.disabled = true;
     }
 }
 
@@ -45,91 +44,74 @@ gachaButton.addEventListener('click', () => {
     // アルコールを含むかどうかの設定を取得
     const includeAlcohol = includeAlcoholCheckbox.checked;
     // 野菜が苦手な人のメニューを除外する設定を取得
-    const excludeInVegetable = excludeInVegetableCheckbox.checked; // 新しく追加したチェックボックスの状態を取得
+    const excludeInVegetable = excludeInVegetableCheckbox.checked;
+    // 選択された目標金額を取得 (文字列として取得されるので数値に変換)
+    const targetAmount = parseInt(targetAmountSelect.value, 10); // <-- この行を修正
 
     // 選択可能なメニューをフィルタリング（アルコール設定と野菜設定による除外）
     let availableMenuItems = allMenuItems.filter(item => {
-        // アルコール除外の条件
         if (!includeAlcohol && item.isAlcohol) {
-            return false; // アルコールを含まない設定で、そのメニューがアルコール飲料であれば除外
+            return false;
         }
-        
-        // 野菜苦手な人のメニューを除外する条件
-        // excludeInVegetable がtrueで、かつそのメニューにinVegetableフラグがtrueであれば除外
         if (excludeInVegetable && item.inVegetable) {
             return false;
         }
-
-        return true; // 上記の除外条件に当てはまらなければ選択候補に含める
+        return true;
     });
 
     // メニューが選択可能な状態かどうかをチェック
     if (availableMenuItems.length === 0) {
         resultDiv.innerHTML = '<p class="error-message">選択された条件に合うメニューがありません。条件を変更してください。</p>';
         gachaButton.disabled = false;
-        return; // これ以上処理しない
+        return;
     }
 
-    // 探索のターゲット金額
-    const targetAmount = 1000;
-    const maxAttempts = 10000; // 試行回数の上限を設定（無限ループ防止のため）
-    const maxItems = 10; // 1つの組み合わせに含むアイテム数の上限（多すぎると見栄えが悪いので）
+    const maxAttempts = 10000;
+    const maxItems = 10;
 
-    let foundCombination = null; // 見つかった組み合わせを格納する変数
-    let attemptCount = 0;        // 試行回数カウンター
+    let foundCombination = null;
+    let attemptCount = 0;
 
     // 組み合わせが見つかるか、試行回数の上限に達するまでループ
     while (attemptCount < maxAttempts && foundCombination === null) {
-        attemptCount++; // 試行回数をインクリメント
-        let currentCombination = []; // 現在の試行での組み合わせ
-        let currentTotal = 0;        // 現在の試行での合計金額
-
-        // 毎回、利用可能なメニューのコピーを作成し、価格降順にソート
-        // ソートは毎回行うことで、ランダム選択の独立性を保ちつつ、効率的な探索を可能にする
-        // ※このソートは、ランダムに選ぶ際に残金以下のアイテムを見つけやすくする効果を期待します。
-        // 同じアイテムを重複して選べるため、リストから削除する処理はありません。
+        attemptCount++;
+        let currentCombination = [];
+        let currentTotal = 0;
         let candidates = [...availableMenuItems].sort((a, b) => b.price - a.price);
 
-        // 現在の試行での組み合わせ探索ループ
         while (currentTotal < targetAmount && currentCombination.length < maxItems && candidates.length > 0) {
-            // 残金以下で選べるメニューをフィルタリング（動的に候補を絞る）
             const affordableCandidates = candidates.filter(item => item.price <= (targetAmount - currentTotal));
 
             if (affordableCandidates.length === 0) {
-                // 残金以下で選べるものがもうない場合、この組み合わせは失敗なので中断
                 break;
             }
 
-            // 選べるアイテムの中からランダムに一つ選ぶ
             const randomIndex = Math.floor(Math.random() * affordableCandidates.length);
             const chosenItem = affordableCandidates[randomIndex];
 
-            // 選んだアイテムを現在の組み合わせに追加
             currentCombination.push(chosenItem);
-            // 合計金額を更新
             currentTotal += chosenItem.price;
-
-            // ※同じ商品を複数回選べる（重複を許可する）ため、
-            // ここで `chosenItem` を `candidates` から削除する処理は行いません。
         }
 
-        // 組み合わせが見つかったかチェック (目標金額1000円ちょうど)
+        // 組み合わせが見つかったかチェック
+        // 目標金額が1000円ちょうどの場合
         if (currentTotal === targetAmount) {
-            foundCombination = currentCombination; // 組み合わせが見つかったら格納
+            foundCombination = currentCombination;
         }
+        // ここに将来的に「±100円の許容範囲」のロジックを追加できます
+        // if (currentTotal >= (targetAmount - 100) && currentTotal <= targetAmount) { ... }
     }
 
     // 結果の表示
     if (foundCombination) {
         let resultHTML = '<h2>選ばれたメニュー:</h2>';
         foundCombination.forEach(item => {
-            // 注文コード、メニュー名、価格を表示
             resultHTML += `<p>${item.code} - ${item.name} (${item.price}円)</p>`;
         });
-        resultHTML += `<p class="total-price">合計: ${targetAmount}円</p>`;
+        resultHTML += `<p class="total-price">合計: ${foundCombination.reduce((sum, item) => sum + item.price, 0)}円</p>`; // 合計金額を再計算して表示
         resultDiv.innerHTML = resultHTML;
     } else {
         resultDiv.innerHTML = `<p class="error-message">ちょうど${targetAmount}円になる組み合わせが見つかりませんでした。<br>もう一度ガチャを回してみてください！(試行回数: ${attemptCount}回)</p>`;
     }
-    gachaButton.disabled = false; // 処理が完了したらボタンを再度有効化
+    gachaButton.disabled = false;
 });
