@@ -8,7 +8,7 @@ const excludeInVegetableCheckbox = document.getElementById('excludeInVegetable')
 // HTML要素が見つからない場合は、コンソールに警告を表示し、処理を中断
 if (!gachaButton || !resultDiv || !targetAmountSelect || !includeAlcoholCheckbox || !excludeInVegetableCheckbox) {
     console.error("エラー: 必要なHTML要素が見つかりません。index.htmlのIDを確認してください。");
-    if (gachaButton) gachaButton.disabled = true;
+    if (gachaButton) gachaButton.disabled = true; // ボタンを無効化
     if (resultDiv) resultDiv.innerHTML = '<p class="error-message">ページの設定に問題があります。開発者に連絡してください。</p>';
     throw new Error("HTML要素の初期化に失敗しました。");
 }
@@ -22,7 +22,7 @@ async function loadMenuItems() {
         const response = await fetch('./menu.json'); 
 
         if (!response.ok) {
-            throw new Error(`メニューデータの読み込みに失敗しました。HTTPステータス: <span class="math-inline">\{response\.status\} \(</span>{response.statusText})`);
+            throw new Error(`メニューデータの読み込みに失敗しました。HTTPステータス: ${response.status} (${response.statusText})`);
         }
         const data = await response.json();
         if (!Array.isArray(data)) {
@@ -58,11 +58,11 @@ gachaButton.addEventListener('click', () => {
     // 選択された目標金額を取得 (文字列として取得されるので数値に変換)
     const targetAmount = parseInt(targetAmountSelect.value, 10);
 
-    // ★★★ ここから新しい変更点：許容範囲の設定 ★★★
-    // 目標金額からの許容範囲を定義
+    // ★★★ 変更点：許容範囲の設定 ★★★
     const tolerance = 40; // 許容する差額（例: ±40円まで）
-    const minAcceptableAmount = targetAmount - tolerance; // 960円
-    const maxAcceptableAmount = targetAmount; // 1000円 (ピッタリも含む)
+    const minAcceptableAmount = targetAmount - tolerance; // 例: 960円
+    const maxAcceptableAmount = targetAmount; // 例: 1000円 (ピッタリも含む)
+    
     // 最大アイテム数の調整 (組み合わせが見つかりやすくするため)
     const maxItems = 15; // 以前の10個から少し増やしました
 
@@ -79,10 +79,7 @@ gachaButton.addEventListener('click', () => {
         if (excludeInVegetable && item.inVegetable) {
             return false;
         }
-        // ★★★ ここも変更点：高すぎる商品は最初の候補から除外 ★★★
-        // 目標金額（例えば1000円）より高い商品は、単独では選べないので除外
-        // ただし、許容範囲のロジックを考えると、後で選ぶ商品には関係ないので、ここは残金でフィルタリングするループ内で判断
-        // ここでは、単独で目標金額を超える高額すぎるメニュー（例：2200円のワインなど）をフィルタリング
+        // 単独で目標金額を超える高額すぎるメニュー（例：2200円のワインなど）をフィルタリング
         if (item.price > targetAmount) {
              return false;
         }
@@ -115,26 +112,21 @@ gachaButton.addEventListener('click', () => {
             // 残金以下で選べるメニューをフィルタリング（動的に候補を絞る）
             // 次に選ぶ商品が、残金以下で、かつ追加しても目標金額の最大許容値を超えないようにフィルタリング
             const affordableCandidates = candidates.filter(item => {
-                // 選んだら目標金額の上限を超えてしまう商品は選ばない
                 return item.price <= (targetAmount - currentTotal);
             });
 
             if (affordableCandidates.length === 0) {
-                // 残金以下で選べるものがもうない場合、この組み合わせは失敗なので中断
-                break;
+                break; // 残金以下で選べるものがもうない場合、この組み合わせは失敗なので中断
             }
 
-            // 選べるアイテムの中からランダムに一つ選ぶ
             const randomIndex = Math.floor(Math.random() * affordableCandidates.length);
             const chosenItem = affordableCandidates[randomIndex];
-
+            
             currentCombination.push(chosenItem);
             currentTotal += chosenItem.price;
-
-            // ※同じ商品を複数回選べるため、選んだアイテムをcandidatesから削除しない
         }
 
-        // ★★★ ここが新しい変更点：合計金額が許容範囲内かチェック ★★★
+        // ★★★ 変更点：合計金額が許容範囲内かチェック (メッセージ出し分けなし) ★★★
         if (currentTotal >= minAcceptableAmount && currentTotal <= maxAcceptableAmount) {
             foundCombination = currentCombination;
         }
@@ -144,19 +136,16 @@ gachaButton.addEventListener('click', () => {
     if (foundCombination) {
         let resultHTML = '<h2>選ばれたメニュー:</h2>';
         foundCombination.forEach(item => {
-            resultHTML += `<p>${item.code} - <span class="math-inline">\{item\.name\} \(</span>{item.price}円)</p>`;
+            resultHTML += `<p>${item.code} - ${item.name} (${item.price}円)</p>`;
         });
         const finalTotal = foundCombination.reduce((sum, item) => sum + item.price, 0);
         
-        // 許容範囲によるメッセージの出し分け
-        if (finalTotal === targetAmount) {
-            resultHTML += `<p class="total-price">合計: ${finalTotal}円 (ちょうど！)</p>`;
-        } else {
-            resultHTML += `<p class="total-price">合計: ${finalTotal}円 (OK範囲内！)</p>`;
-        }
+        // ★★★ 変更点：メッセージ出し分けなし ★★★
+        resultHTML += `<p class="total-price">合計: ${finalTotal}円</p>`; // シンプルに合計金額のみ表示
         
         resultDiv.innerHTML = resultHTML;
     } else {
-        resultDiv.innerHTML = `<p class="error-message">目標金額<span class="math-inline">\{targetAmount\}円（</span>{minAcceptableAmount}〜${maxAcceptableAmount}円）の組み合わせが見つかりませんでした。<br>もう一度ガチャを回してみてください！(試行回数: ${attemptCount}回)</p>`;
+        resultDiv.innerHTML = `<p class="error-message">目標金額${targetAmount}円（${minAcceptableAmount}〜${maxAcceptableAmount}円）の組み合わせが見つかりませんでした。<br>もう一度ガチャを回してみてください！(試行回数: ${attemptCount}回)</p>`;
     }
     gachaButton.disabled = false; // 処理が完了したらボタンを再度有効化
+});
