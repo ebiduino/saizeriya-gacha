@@ -1,667 +1,97 @@
 [
-  {
-    "code": "5101",
-    "name": "セットドリンクバー",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "5102",
-    "name": "ドリンクバー キッズ",
-    "price": 100,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "5103",
-    "name": "ドリンクバー 単品",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3401",
-    "name": "グラスワイン (120ml) 赤",
-    "price": 100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3402",
-    "name": "グラスワイン (120ml) 白",
-    "price": 100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3403",
-    "name": "デカンタ小 (250ml) 赤",
-    "price": 200,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3404",
-    "name": "デカンタ小 (250ml) 白",
-    "price": 200,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3405",
-    "name": "デカンタ大 (500ml) 赤",
-    "price": 400,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3406",
-    "name": "デカンタ大 (500ml) 白",
-    "price": 400,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3407",
-    "name": "マグナム (1500ml) 赤",
-    "price": 1100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3408",
-    "name": "マグナム (1500ml) 白",
-    "price": 1100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3412",
-    "name": "ランブルスコロゼ（ロゼ・発泡/甘口）",
-    "price": 1100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3413",
-    "name": "ドンラファエロ（白・発泡/辛口）",
-    "price": 1100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3414",
-    "name": "ランブルスコロゼコセッコ（赤・発泡/辛口）",
-    "price": 1100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3415",
-    "name": "ベルデッキオ（白/辛口）",
-    "price": 1100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3416",
-    "name": "キャンティ（赤/辛口）",
-    "price": 1100,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3419",
-    "name": "キャンティルフィナリゼルバ（赤/辛口 フルボディ）",
-    "price": 2200,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3301",
-    "name": "キリン一番搾り ジョッキ",
-    "price": 400,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3302",
-    "name": "キリン一番搾り グラスビール",
-    "price": 280,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3303",
-    "name": "アサヒ ドライゼロ",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3304",
-    "name": "キリン氷結シチリア産レモン",
-    "price": 250,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "3306",
-    "name": "グラッパ (30ml)",
-    "price": 300,
-    "isAlcohol": true,
-    "inVegetable": false
-  },
-  {
-    "code": "1401",
-    "name": "辛味チキン",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1405",
-    "name": "エスカルゴのオーブン焼き",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1404",
-    "name": "ポップコーンシュリンプ",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1402",
-    "name": "アロスティチーニ",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1452",
-    "name": "アロスティチーニ Wサイズ",
-    "price": 800,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1413",
-    "name": "キャロットラペ",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1406",
-    "name": "小エビのカクテル",
-    "price": 280,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1408",
-    "name": "蒸し鶏の香味ソース",
-    "price": 280,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1417",
-    "name": "バッファローモッツァレラのカプレーゼ",
-    "price": 430,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1423",
-    "name": "生ハムとバッファローモッツアレラの盛合せ",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1422",
-    "name": "ハモン・セラーノ",
-    "price": 320,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1435",
-    "name": "スイートコーン",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1425",
-    "name": "柔らか青豆の温サラダ",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1403",
-    "name": "ほうれん草のソテー",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1416",
-    "name": "ポテトのグリル",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1407",
-    "name": "チョリソー",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1410",
-    "name": "ムール貝のガーリック焼き",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1202",
-    "name": "小エビのサラダ",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1209",
-    "name": "チキンのサラダ",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1205",
-    "name": "わかめのサラダ",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1307",
-    "name": "たまねぎのズッパ",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "1301",
-    "name": "コーンクリームスープ",
-    "price": 150,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "1305",
-    "name": "田舎風ミネストローネ",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "2203",
-    "name": "バッファローモッツァレラのマルゲリータピザ",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2208",
-    "name": "ソーセージピザ",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2206",
-    "name": "たっぷりコーンのピザ",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "2204",
-    "name": "野菜ときのこのピザ",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "2101",
-    "name": "ミラノ風ドリア",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2103",
-    "name": "半熟卵のミラノ風ドリア",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2108",
-    "name": "焼きチーズミラノ風ドリア",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2110",
-    "name": "タラコとポップコーンシュリンプのドリア",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2115",
-    "name": "ポップコーンシュリンプとタラコのクリームグラタン（全粒粉）",
-    "price": 430,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2106",
-    "name": "タラコとエビのドリア",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2109",
-    "name": "エビとタラコのクリームグラタン（全粒粉）",
-    "price": 430,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2320",
-    "name": "小エビのタラコソース",
-    "price": 540,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2301",
-    "name": "タラコソースシシリー風",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2305",
-    "name": "カルボナーラ",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2310",
-    "name": "スープ入り塩味ボンゴレ",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2328",
-    "name": "イカの墨入りセピアソース",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2321",
-    "name": "きのことほうれん草のクリームスパゲティ",
-    "price": 600,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "2303",
-    "name": "ペペロンチーノ",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2317",
-    "name": "半熟卵のペペロンチーノ",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2306",
-    "name": "ミートソースボロニア風",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2316",
-    "name": "半熟卵のミートソースボロニア風",
-    "price": 450,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2304",
-    "name": "パルマ風スパゲッティ",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2325",
-    "name": "ペンネアラビアータ（全粒粉）",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2406",
-    "name": "ハンバーグステーキ",
-    "price": 400,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2407",
-    "name": "ディアボラ風ハンバーグ",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "2403",
-    "name": "イタリアンハンバーグ",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2106",
-    "name": "ミックスグリル",
-    "price": 650,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2402",
-    "name": "若鶏のディアボラ風",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "2404",
-    "name": "柔らかチキンのチーズ焼き",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "2413",
-    "name": "ラム（仔羊）と野菜のグリル",
-    "price": 870,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "3110",
-    "name": "フォッカチオ",
-    "price": 150,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3111",
-    "name": "ガーリックフォッカチオ",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3112",
-    "name": "シナモンフォッカチオ",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3114",
-    "name": "チーズフォッカチオ",
-    "price": 250,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3101",
-    "name": "ライス",
-    "price": 150,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3102",
-    "name": "ラージライス",
-    "price": 200,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3103",
-    "name": "スモールライス",
-    "price": 100,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "4301",
-    "name": "トッピング半熟卵",
-    "price": 50,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "4307",
-    "name": "トッピング粉チーズ（グランモラビア）",
-    "price": 100,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "4304",
-    "name": "サイゼリヤの野菜ソース",
-    "price": 100,
-    "isAlcohol": false,
-    "inVegetable": true
-  },
-  {
-    "code": "5305",
-    "name": "サイゼリヤドレッシング (500ml)",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "5306",
-    "name": "エクストラ・バージン・オリーブオイル (500ml)",
-    "price": 1200,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3201",
-    "name": "ティラミス クラシコ",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3206",
-    "name": "イタリアンプリン",
-    "price": 250,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3212",
-    "name": "プリンとティラミス クラシコの盛合せ",
-    "price": 500,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3205",
-    "name": "ミルクジェラート",
-    "price": 250,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3213",
-    "name": "トリフアイスクリーム",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3207",
-    "name": "チョコレートケーキ",
-    "price": 300,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3215",
-    "name": "コーヒーゼリー＆ミルクジェラート",
-    "price": 350,
-    "isAlcohol": false,
-    "inVegetable": false
-  },
-  {
-    "code": "3204",
-    "name": "ジェラート＆シナモンフォッカチオ",
-    "price": 450,
-    "isAlcohol": false,
-    "inVegetable": false
-  }
+  {"code":"5101","name":"セットドリンクバー","price":200,"isAlcohol":false},
+  {"code":"5102","name":"ドリンクバー キッズ","price":100,"isAlcohol":false},
+  {"code":"5103","name":"ドリンクバー 単品","price":300,"isAlcohol":false},
+  {"code":"3301","name":"生ビール ジョッキ","price":400,"isAlcohol":true},
+  {"code":"3302","name":"生ビール グラスビール","price":280,"isAlcohol":true},
+  {"code":"3303","name":"ノンアルコールビール アサヒドライゼロ","price":250,"isAlcohol":false},
+  {"code":"3304","name":"キリン 氷結 シチリア産レモン","price":350,"isAlcohol":true},
+  {"code":"3306","name":"食前酒 グラッパ","price":300,"isAlcohol":true},
+  {"code":"3401","name":"グラスワイン 120ml 赤","price":100,"isAlcohol":true},
+  {"code":"3402","name":"グラスワイン 120ml 白","price":100,"isAlcohol":true},
+  {"code":"3403","name":"デカンタ小 250ml 赤","price":200,"isAlcohol":true},
+  {"code":"3404","name":"デカンタ小 250ml 白","price":200,"isAlcohol":true},
+  {"code":"3405","name":"デカンタ大 500ml 赤","price":400,"isAlcohol":true},
+  {"code":"3406","name":"デカンタ大 500ml 白","price":400,"isAlcohol":true},
+  {"code":"3407","name":"マグナム 1500ml 赤","price":1100,"isAlcohol":true},
+  {"code":"3408","name":"マグナム 1500ml 白","price":1100,"isAlcohol":true},
+  {"code":"3413","name":"ドンラファエロ","price":1100,"isAlcohol":true},
+  {"code":"3412","name":"ランブルスコロゼ","price":1100,"isAlcohol":true},
+  {"code":"3414","name":"ランブルスコセッロ","price":1100,"isAlcohol":true},
+  {"code":"3415","name":"ベルデッキオ","price":1100,"isAlcohol":true},
+  {"code":"3416","name":"キャンティ","price":1100,"isAlcohol":true},
+  {"code":"3419","name":"キャンティ ルフィナリゼルバ","price":1100,"isAlcohol":true},
+  {"code":"1423","name":"生ハムとバッファローモッツアレラの盛り合わせ","price":500,"isAlcohol":false},
+  {"code":"1422","name":"ハモン・セラーノ","price":320,"isAlcohol":false},
+  {"code":"1417","name":"バッファローモッツアレラのカプレーゼ","price":430,"isAlcohol":false},
+  {"code":"1408","name":"蒸し鶏の香味ソース","price":280,"isAlcohol":false},
+  {"code":"1406","name":"小エビのカクテル","price":280,"isAlcohol":false},
+  {"code":"1405","name":"エスカルゴのオーブン焼き","price":364,"isAlcohol":false},
+  {"code":"3110","name":"フォッカチオ","price":150,"isAlcohol":false},
+  {"code":"1402","name":"アロスティチーニ","price":400,"isAlcohol":false},
+  {"code":"1452","name":"アロスティチーニ Wサイズ","price":800,"isAlcohol":false},
+  {"code":"1410","name":"ムール貝のガーリック焼き","price":400,"isAlcohol":false},
+  {"code":"1401","name":"辛味チキン","price":300,"isAlcohol":false},
+  {"code":"1407","name":"チョリソー","price":400,"isAlcohol":false},
+  {"code":"1404","name":"ポップコーンシュリンプ","price":300,"isAlcohol":false},
+  {"code":"1416","name":"ポテトのグリル","price":300,"isAlcohol":false},
+  {"code":"1403","name":"ほうれん草のソテー","price":200,"isAlcohol":false},
+  {"code":"1413","name":"キャロットラペ","price":200,"isAlcohol":false},
+  {"code":"1425","name":"柔らか青豆の温サラダ","price":200,"isAlcohol":false},
+  {"code":"1202","name":"小エビのサラダ","price":350,"isAlcohol":false},
+  {"code":"5305","name":"サイゼリヤドレッシング","price":500,"isAlcohol":false},
+  {"code":"1209","name":"チキンのサラダ","price":350,"isAlcohol":false},
+  {"code":"1205","name":"わかめのサラダ","price":350,"isAlcohol":false},
+  {"code":"3114","name":"チーズフォッカチオ","price":250,"isAlcohol":false},
+  {"code":"3111","name":"ガーリックフォッカチオ","price":200,"isAlcohol":false},
+  {"code":"3112","name":"シナモンフォッカチオ","price":200,"isAlcohol":false},
+  {"code":"1307","name":"たまねぎのズッパ","price":300,"isAlcohol":false},
+  {"code":"1301","name":"コーンクリームスープ","price":150,"isAlcohol":false},
+  {"code":"1305","name":"田舎風ミネストローネ","price":300,"isAlcohol":false},
+  {"code":"1302","name":"冷たいパンプキンスープ","price":180,"isAlcohol":false},
+  {"code":"2203","name":"バッファローモッツアレラのマルゲリータピザ","price":400,"isAlcohol":false},
+  {"code":"2208","name":"ソーセージピザ","price":400,"isAlcohol":false},
+  {"code":"2206","name":"たっぷりコーンのピザ","price":400,"isAlcohol":false},
+  {"code":"2204","name":"野菜ときのこのピザ","price":400,"isAlcohol":false},
+  {"code":"2101","name":"ミラノ風ドリア","price":300,"isAlcohol":false},
+  {"code":"2103","name":"半熟卵のミラノ風ドリア","price":350,"isAlcohol":false},
+  {"code":"2108","name":"焼きチーズ ミラノ風ドリア","price":350,"isAlcohol":false},
+  {"code":"2110","name":"タラコとポップコーンシュリンプのドリア","price":400,"isAlcohol":false},
+  {"code":"2115","name":"ポップコーンシュリンプとタラコのクリームグラタン","price":430,"isAlcohol":false},
+  {"code":"2305","name":"カルボナーラ","price":500,"isAlcohol":false},
+  {"code":"2318","name":"半熟卵のカルボナーラ","price":550,"isAlcohol":false},
+  {"code":"4307","name":"トッピング粉チーズ","price":100,"isAlcohol":false},
+  {"code":"4301","name":"トッピング半熟卵","price":50,"isAlcohol":false},
+  {"code":"2301","name":"タラコソースシシリー風","price":400,"isAlcohol":false},
+  {"code":"2320","name":"小エビのタラコソース","price":540,"isAlcohol":false},
+  {"code":"2304","name":"パルマ風スパゲッティ","price":400,"isAlcohol":false},
+  {"code":"2321","name":"きのことほうれん草のクリームスパゲッティ","price":600,"isAlcohol":false},
+  {"code":"2328","name":"イカの墨入りセピアソース","price":500,"isAlcohol":false},
+  {"code":"5306","name":"エクストラ・バージン・オリーブオイル","price":1200,"isAlcohol":false},
+  {"code":"2306","name":"ミートソースボロニア風","price":400,"isAlcohol":false},
+  {"code":"2316","name":"半熟卵のミートソースボロニア風","price":450,"isAlcohol":false},
+  {"code":"2310","name":"スープ入り塩味ボンゴレ","price":500,"isAlcohol":false},
+  {"code":"2303","name":"ペペロンチーノ","price":300,"isAlcohol":false},
+  {"code":"2317","name":"半熟卵のペペロンチーノ","price":350,"isAlcohol":false},
+  {"code":"2325","name":"ペンネアラビアータ","price":430,"isAlcohol":false},
+  {"code":"3201","name":"ティラミス クラシコ","price":300,"isAlcohol":false},
+  {"code":"3205","name":"ミルクジェラート","price":250,"isAlcohol":false},
+  {"code":"3206","name":"イタリアンプリン","price":250,"isAlcohol":false},
+  {"code":"3207","name":"チョコレートケーキ","price":300,"isAlcohol":false},
+  {"code":"3212","name":"プリンとティラミス クラシコの盛合わせ","price":500,"isAlcohol":false},
+  {"code":"3213","name":"トリフアイスクリーム","price":350,"isAlcohol":false},
+  {"code":"3214","name":"ジェラート&シナモンフォッカチオ","price":450,"isAlcohol":false},
+  {"code":"3215","name":"コーヒーゼリー&ミルクジェラート","price":350,"isAlcohol":false},
+  {"code":"3216","name":"チョコレートケーキ&ミルクジェラート","price":500,"isAlcohol":false},
+  {"code":"2402","name":"若鶏のディアボラ風","price":500,"isAlcohol":false},
+  {"code":"2403","name":"イタリアンハンバーグ","price":500,"isAlcohol":false},
+  {"code":"2404","name":"柔らかチキンのチーズ焼き","price":500,"isAlcohol":false},
+  {"code":"2406","name":"ハンバーグステーキ","price":400,"isAlcohol":false},
+  {"code":"2407","name":"ディアボラ風ハンバーグ","price":500,"isAlcohol":false},
+  {"code":"2413","name":"ラム(仔羊)のグリル","price":870,"isAlcohol":false},
+  {"code":"2418","name":"ミックスグリル","price":650,"isAlcohol":false},
+  {"code":"4304","name":"トッピング野菜ソース","price":100,"isAlcohol":false},
+  {"code":"3101","name":"ライス","price":150,"isAlcohol":false},
+  {"code":"3102","name":"ラージライス","price":200,"isAlcohol":false},
+  {"code":"3103","name":"スモールライス","price":100,"isAlcohol":false}
 ]
